@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { DateRange, DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
-import { Calendar } from "@/components/ui/calendar";
 
 const BookingCalendar = () => {
   const currentDate = new Date();
