@@ -2,9 +2,18 @@
 import { Input } from "../ui/input";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { Skeleton } from "../ui/skeleton";
 
-const NavSearch = () => {
+function NavSearch() {
+  return (
+    <Suspense fallback={<Skeleton className="h-6 max-w-xs rounded" />}>
+      <NavSearchContent />
+    </Suspense>
+  );
+}
+
+const NavSearchContent = () => {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const [search, setSearch] = useState(
