@@ -10,7 +10,7 @@ const loading = () => {
           <Skeleton className="h-6 w-6 rounded" />
         </div>
       </div>
-      <Skeleton className="h-[300px] md:h-[500px] w-full rounded mt-4" />;
+      <Skeleton className="h-[300px] md:h-[500px] w-full rounded mt-4" />
     </section>
   );
 };

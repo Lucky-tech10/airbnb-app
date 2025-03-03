@@ -10,6 +10,7 @@ import {
   generateBlockedPeriods,
 } from "@/utils/calendar";
 import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
 
 const BookingCalendar = () => {
   const currentDate = new Date();
@@ -24,7 +25,7 @@ const BookingCalendar = () => {
 
   useEffect(() => {
     const selesctedRange = generateDateRange(range);
-    const isDisabledDateIncluded = selesctedRange.some((date) => {
+    selesctedRange.some((date) => {
       if (unavailableDates[date]) {
         setRange(defaultSelected);
         toast({
@@ -45,6 +46,10 @@ const BookingCalendar = () => {
       onSelect={setRange}
       disabled={blockedPeriod}
       className="mb-4"
+      classNames={{
+        day_selected: "bg-primary !important", // Change selected day color
+        day_today: "text-primary !important", // Optional: highlight today
+      }}
     />
   );
 };
