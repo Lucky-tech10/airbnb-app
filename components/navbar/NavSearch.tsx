@@ -7,7 +7,7 @@ import { Skeleton } from "../ui/skeleton";
 
 function NavSearch() {
   return (
-    <Suspense fallback={<Skeleton className="h-6 max-w-xs rounded" />}>
+    <Suspense>
       <NavSearchContent />
     </Suspense>
   );

@@ -8,12 +8,21 @@ import {
   EmbeddedCheckoutProvider,
   EmbeddedCheckout,
 } from "@stripe/react-stripe-js";
+import { Suspense } from "react";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
 );
 
-const CheckoutPage = () => {
+function CheckoutPage() {
+  return (
+    <Suspense>
+      <Checkout />
+    </Suspense>
+  );
+}
+
+const Checkout = () => {
   const searchParams = useSearchParams();
 
   const bookingId = searchParams.get("bookingId");
